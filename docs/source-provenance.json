@@ -1,0 +1,65 @@
+{
+  "status": "SOURCE-ONLY SHOWCASE; SOURCE PUBLICATION AUTHORIZED; NO REUSE LICENSE GRANTED",
+  "source_head": "d90077c0e298f6754939d84a8efdbcedb9f6c3a7",
+  "source_basis": "Selected working-tree files, not a clean export of the commit. SHA-256 identifies exact inputs.",
+  "files": [
+    {
+      "candidate_path": "scripts/train_round00_stage01_timm.py",
+      "source_relative_path": "scripts/train_round00_stage01_timm.py",
+      "source_sha256": "5e15bb59169574a8c6050ef5ce00eed4b76531f8dbb74b0ac711504438f7c2d6"
+    },
+    {
+      "candidate_path": "scripts/prepare_round00_stage01_data.py",
+      "source_relative_path": "scripts/prepare_round00_stage01_data.py",
+      "source_sha256": "1f9f1f2da97adfed0e4a0384341d5fa107b7e8993c4c9bbbb6484b71e37e5341"
+    },
+    {
+      "candidate_path": "scripts/audit_round03_stage02_promotion.py",
+      "source_relative_path": "scripts/audit_round03_stage02_promotion.py",
+      "source_sha256": "19eadf1a282353cf14398a464415eeb883b15b726c80092cdf0549b13c0a4050"
+    },
+    {
+      "candidate_path": "scripts/phase4_outputs/__init__.py",
+      "source_relative_path": "scripts/phase4_outputs/__init__.py",
+      "source_sha256": "6bb20acd34005413bd46f28b4179eced4e95ee7b2edb67d1d86e47b61528c3d6"
+    },
+    {
+      "candidate_path": "scripts/phase4_outputs/common.py",
+      "source_relative_path": "scripts/phase4_outputs/common.py",
+      "source_sha256": "a32037a799e4ccdb14769720607bfb3f36037fe3a8f1d70d4b42496dcf7d7ff0"
+    },
+    {
+      "candidate_path": "scripts/phase4_outputs/metrics.py",
+      "source_relative_path": "scripts/phase4_outputs/metrics.py",
+      "source_sha256": "0f790d36a100f83443e4b55637015365e00e1a6444ade4d61ad40f3e6aaebb30"
+    },
+    {
+      "candidate_path": "tests/test_phase4_outputs_metrics.py",
+      "source_relative_path": "tests/test_phase4_outputs_metrics.py",
+      "source_sha256": "8bc940225e045fd3e260d6c6900b29755ff5b9b928761ec64bcb48c29f4e919a"
+    },
+    {
+      "candidate_path": "tests/test_audit_round03_stage02_promotion.py",
+      "source_relative_path": "tests/test_audit_round03_stage02_promotion.py",
+      "source_sha256": "3361a428736f46a2a59ad5099132497ed32bd05e280864310c407f34dbf757dd"
+    }
+  ],
+  "context_inputs": [
+    {
+      "source_relative_path": "configs/round03_stage02/convnextv2_l_ra_m4_img128_b192.yaml",
+      "source_sha256": "6315189b8094b779cbfc4cd19aa0e9bb968a65226a7eec1c520d924a92e7f6e7",
+      "use": "Sanitized portable configuration derived from hyperparameters, not exact reproduction"
+    },
+    {
+      "source_relative_path": "envs/phase_4.yml",
+      "source_sha256": "5c1619209132775b0f3545019f326774a93f24126900538af6d888ca8494e5ff",
+      "use": "Dependency versions narrowed to retained imports"
+    }
+  ],
+  "working_tree_status": {
+    "scripts/train_round00_stage01_timm.py": "modified",
+    "scripts/audit_round03_stage02_promotion.py": "untracked",
+    "tests/test_audit_round03_stage02_promotion.py": "untracked",
+    "configs/round03_stage02/convnextv2_l_ra_m4_img128_b192.yaml": "untracked"
+  }
+}

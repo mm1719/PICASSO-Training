@@ -1,0 +1,6 @@
+# Evaluation-only versions recorded in the source project's environment specification.
+# Not a complete lockfile; fresh-environment installation has not been tested.
+numpy==2.4.4
+pandas==3.0.2
+scikit-learn==1.8.0
+PyYAML==6.0.3

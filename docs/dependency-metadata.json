@@ -1,0 +1,72 @@
+{
+  "metadata_only": true,
+  "frameworks_imported": false,
+  "direct_dependencies": [
+    {
+      "name": "numpy",
+      "installed_version": "2.4.4",
+      "license_expression_metadata": "BSD-3-Clause AND 0BSD AND MIT AND Zlib AND CC0-1.0",
+      "license_label_first_line": [],
+      "scope": "Installed package metadata only; not a complete license or artifact review"
+    },
+    {
+      "name": "pandas",
+      "installed_version": "3.0.2",
+      "license_expression_metadata": null,
+      "license_label_first_line": [
+        "BSD 3-Clause License"
+      ],
+      "scope": "Installed package metadata only; not a complete license or artifact review"
+    },
+    {
+      "name": "scikit-learn",
+      "installed_version": "1.8.0",
+      "license_expression_metadata": "BSD-3-Clause",
+      "license_label_first_line": [],
+      "scope": "Installed package metadata only; not a complete license or artifact review"
+    },
+    {
+      "name": "PyYAML",
+      "installed_version": "6.0.3",
+      "license_expression_metadata": null,
+      "license_label_first_line": [
+        "MIT"
+      ],
+      "scope": "Installed package metadata only; not a complete license or artifact review"
+    },
+    {
+      "name": "torch",
+      "installed_version": "2.11.0",
+      "license_expression_metadata": null,
+      "license_label_first_line": [
+        "BSD-3-Clause"
+      ],
+      "scope": "Installed package metadata only; not a complete license or artifact review"
+    },
+    {
+      "name": "torchvision",
+      "installed_version": "0.26.0",
+      "license_expression_metadata": null,
+      "license_label_first_line": [
+        "BSD"
+      ],
+      "scope": "Installed package metadata only; not a complete license or artifact review"
+    },
+    {
+      "name": "timm",
+      "installed_version": "1.0.26",
+      "license_expression_metadata": null,
+      "license_label_first_line": [
+        "Apache-2.0"
+      ],
+      "scope": "Installed package metadata only; not a complete license or artifact review"
+    },
+    {
+      "name": "pillow",
+      "installed_version": "12.2.0",
+      "license_expression_metadata": "MIT-CMU",
+      "license_label_first_line": [],
+      "scope": "Installed package metadata only; not a complete license or artifact review"
+    }
+  ]
+}

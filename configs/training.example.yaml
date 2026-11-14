@@ -1,0 +1,89 @@
+# Adapted configuration, not an exact experiment reproduction. Supply your own authorized data.
+general:
+  project_root: .
+  run_root: local-runs
+  experiment_output_root: local-reports
+supporting_data:
+  dir: local-data/supporting
+  split_manifest: local-data/supporting/split_manifest.csv
+  train_split: local-data/supporting/train.txt
+  val_split: local-data/supporting/val.txt
+  test_split: local-data/supporting/test.txt
+  classes: local-data/supporting/classes.txt
+  target_ids: local-data/supporting/target_ids.txt
+  class_index: local-data/supporting/class_index.csv
+  target_mapping: local-data/supporting/target_id_map.csv
+  data_policy: local-data/supporting/data_policy.json
+  split_policy: local-data/supporting/split_policy.json
+  source_refs: local-data/supporting/source_refs.json
+manifest:
+  path: local-data/manifest.csv.gz
+  sha256: REPLACE_WITH_ACTUAL_SHA256
+  extra_manifests: []
+experiment:
+  phase: phase4
+  round: example
+  stage: source_candidate
+  line_code: portable_ra_m4
+  run_label: portable_ra_m4
+dataset:
+  num_workers: 8
+  test_num_workers: 0
+  split_ratio:
+  - 0.8
+  - 0.1
+  - 0.1
+  split_seed: 20260421
+model:
+  modelname: convnextv2_large.fcmae_ft_in22k_in1k
+  image_size: 128
+  num_classes: 20
+  pretrained: false
+  drop_path_rate: 0.15
+training:
+  run_name: portable_ra_m4
+  epochs: 40
+  batch_size: 192
+  initial_lr: 0.0001
+  weight_decay: 0.08
+  optimizer: adamw
+  scheduler: cosine
+  warmup_epochs: 6
+  label_smoothing: 0.08
+  use_class_weights: true
+  class_weight_mode: panaiotis_relative
+  class_weight_exponent: 0.22
+  checkpoint_metric: val_macro_f1
+  amp: true
+  ema:
+    enabled: true
+    decay: 0.9998
+    validate: true
+    primary: true
+  torch_compile:
+    enabled: true
+    mode: reduce-overhead
+  use_validation: true
+  use_test: true
+  test_tta: null
+  seed: 42
+augmentation:
+  train:
+    mode: timm_imagenet_standard
+    crop_scale:
+    - 0.08
+    - 1.0
+    crop_ratio:
+    - 0.75
+    - 1.3333
+    hflip: 0.5
+    color_jitter: 0.4
+    auto_augment: rand-m4-mstd0.5-inc1
+  eval:
+    mode: resize_center_crop
+monitor:
+  use_wandb: false
+  heartbeat:
+    enabled: true
+    step_interval: 500
+    time_interval_seconds: 300
