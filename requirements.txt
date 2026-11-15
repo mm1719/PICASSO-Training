@@ -1,5 +1,5 @@
 # Evaluation-only versions recorded in the source project's environment specification.
-# Not a complete lockfile; fresh-environment installation has not been tested.
+# Fresh Linux/Python 3.11 evaluation install checked 2026-11-15; not a complete lockfile.
 numpy==2.4.4
 pandas==3.0.2
 scikit-learn==1.8.0

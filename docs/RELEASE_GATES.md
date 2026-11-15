@@ -56,7 +56,9 @@ choosing the eventual source license.
 - [x] Dataset rows, original manifests/splits, images and all weights excluded.
 - [x] Private history, logs, paths, account identifiers and credentials excluded.
 - [x] Synthetic checks are labeled as plumbing tests, not model-performance evidence.
-- [ ] Fresh-environment installation and full trainer execution remain unverified.
+- [x] Fresh Linux x86_64 / Python 3.11.15 evaluation-only install, 19 tests,
+  synthetic demo and `pip check` passed on 2026-11-15; see [validation](VALIDATION.md).
+- [ ] Fresh training-stack installation, full trainer execution and other platforms remain unverified.
 - [ ] Any future reuse license requires appropriate rights and attribution review.
 - [ ] Any future data/weights require their own publication decision and permissions.
 

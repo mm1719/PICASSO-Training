@@ -1,7 +1,8 @@
 # Validation scope
 
-Validated in the existing Python 3.11 research environment using the recorded
-installed evaluation dependencies. No packages were installed or upgraded.
+Initial validation used the existing Python 3.11 research environment and its
+installed evaluation dependencies. That environment was not modified. The
+2026-11-15 fresh-environment check below is a separate evaluation-only check.
 
 - 19 unit/integration tests passed, including a 100-row invented-manifest pipeline.
 - Empty and incorrect expected manifest checksums are rejected before creating
@@ -29,9 +30,42 @@ installed evaluation dependencies. No packages were installed or upgraded.
 - Python source parses successfully. Candidate inventory is source/documentation
   only, without images, datasets, model artifacts or Git databases.
 
-Not performed: fresh-environment install, full dependency resolution, lint/type
-certification, complete trainer imports, real-data validation, model loading,
-training, GPU/runtime benchmarking, numerical equivalence to original runs,
-full pipeline reproduction, artifact-specific data/weight rights clearance, license selection or publication.
+## 2026-11-15 fresh-environment and publication check
+
+The reviewed executable source is commit
+`8f84eb9f56395789ca9076cceece029f0561f102`; the accompanying documentation and
+checksum refresh does not change that source, the tests or dependency versions.
+
+- A new isolated `venv` on Linux x86_64 / Python 3.11.15 installed
+  `requirements.txt` successfully from PyPI. It did not inherit the research
+  environment's installed packages; torch was absent.
+- All 19 tests passed in both the research environment and the isolated
+  evaluation environment, including empty/wrong manifest checksum rejection.
+- The standalone synthetic CLI passed in both environments: 100 invented rows,
+  80/10/10 train/validation/test allocation, and no images or model construction.
+- `python -m pip check` returned exit 0 with no broken requirements in the
+  isolated evaluation environment.
+- Direct versions: numpy 2.4.4, pandas 3.0.2, scikit-learn 1.8.0, PyYAML 6.0.3.
+  Resolved transitive versions: scipy 1.17.1, joblib 1.6.0, threadpoolctl 3.8.0,
+  python-dateutil 4.0.0, cloudpickle 3.1.2 and tzdata 2026.6. This is one tested
+  resolution, not a complete cross-platform lockfile.
+- All 22 source/documentation entries in `candidate-sha256.json` matched their
+  file bytes. Python parsing and relative documentation links passed. Checks
+  of reachable historical file contents found no matches for the inspected
+  credential or machine-local-path patterns; this is not proof of absence of
+  every possible secret or personal identifier.
+
+The environment and generated fixtures were isolated from the research runs.
+No original data, checkpoint, tracking credentials or production services were
+used. Source-only publication and the existing no-reuse-license position are
+unchanged; these checks do not extend permission to datasets or weights.
+
+## Not verified
+
+Not performed: fresh training-stack installation, other operating systems or
+Python versions, lint/type certification, complete trainer imports, real-data
+validation, model loading, training, GPU/runtime benchmarking, numerical
+equivalence to original runs, full pipeline reproduction, artifact-specific
+data/weight rights clearance, or selection of a reuse license.
 A passing synthetic suite is not evidence of model quality, production safety,
 training throughput or permission to publish.

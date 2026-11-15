@@ -24,9 +24,11 @@ boundary, rather than presenting a single aggregate score without context.
 
 ## Quick check: no model or dataset required
 
-Python 3.11 was used for the checks. The dependencies below are the evaluation
-subset, not the training stack. Installation into a clean environment has not
-been tested; pinned versions reflect the local research environment.
+On 2026-11-15, a fresh isolated Linux x86_64 environment with Python 3.11.15
+passed installation of the evaluation-only dependencies below, all 19 tests,
+the synthetic demo, and `pip check`. These dependencies are not the training
+stack; fresh training-stack installation and other platforms remain unverified.
+See [validation scope](docs/VALIDATION.md) for the exact boundaries.
 
 ```bash
 python -m pip install -r requirements.txt
@@ -83,8 +85,11 @@ counts; they are not calibrated probabilities or guarantees of correctness.
 
 ## Training source and reproducibility limits
 
-The example configuration is adapted from a Round 3 Stage 2 ConvNeXtV2-L
-RandAugment magnitude-4 configuration. It preserves core hyperparameters as
+The example configuration is adapted from R3S2-A2: Round 3, Stage 2's second
+augmentation-ablation variant. A2 retains the A0 ConvNeXtV2-L architecture,
+20-target label space and crop settings, and reduces RandAugment magnitude
+from 9 to 4. It is an experiment identifier, not an architecture generation,
+release version or performance rank. The example preserves core hyperparameters as
 source context, but replaces private paths/identifiers with local placeholders,
 turns pretrained initialization off, and disables external tracking. It is
 **not** the configuration that produced the original results.
