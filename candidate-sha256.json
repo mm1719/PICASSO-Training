@@ -1,10 +1,10 @@
 {
   ".gitignore": "b84abacbb5848878c4cee37230ca4c90358ed5908b3be221ea5f6d8eaac5714d",
-  "README.md": "8745db198160cbe0e627ab841eeac12dc645c792345dbf34c2e7bf93dec63dc7",
+  "README.md": "930fbe27495611b794adb2f0542184f9da19a0afd25cb609c30e49501c2975a5",
   "configs/training.example.yaml": "dbed2110d4e6b9cd5cc0dd88a032e1be3898d91f5c71b5c1bfca47f5f16f8031",
-  "docs/PROVENANCE.md": "66f2c092e2b87f6050df0e3bf6282e6cb0ebff7cea304d1e90bc2023dde6a3cf",
+  "docs/PROVENANCE.md": "b9be0fca2820dc58d1ff29227da7614a4b0b18496f6b94601885c7870f6b86fe",
   "docs/RELEASE_GATES.md": "e3d4b21414dda608d2ff41d204ad05322a9187bc6b7574dcbc058e77ffe38fe5",
-  "docs/VALIDATION.md": "f9a1b656b37dda4f22321185fd0e264a4916185223d7602b63aaac3196ac3b04",
+  "docs/VALIDATION.md": "8bedf4165aafb9b2b66a5cee9bb4a00cabd8a5c5009fd46d2ab9f9e97ae5f59f",
   "docs/dependency-metadata.json": "4ebf068adfc70331d8e87f53609ecadd0d74c325b9967e80b272e60f34b4d5b6",
   "docs/source-provenance.json": "b0373b234f6c19a2aed016194ec9b165c724dd5427f517a4f63563e8f2e7a2b5",
   "requirements-training.txt": "e576ddcd3169fd9575213a807c7dbaf04fc30bed653826b8b8f3414c0668aacd",
@@ -16,9 +16,10 @@
   "scripts/phase4_outputs/metrics.py": "0f790d36a100f83443e4b55637015365e00e1a6444ade4d61ad40f3e6aaebb30",
   "scripts/prepare_round00_stage01_data.py": "0838dae19e42bba9405c04a00d0012134c8a89a2146be76c4ac8a6f23fbe451a",
   "scripts/synthetic_demo.py": "1edd19e2a4fb17879997bcd90de45b9a6f485b5d2ae3138de0b3a90859461a3d",
-  "scripts/train_round00_stage01_timm.py": "d8eb9b78f7992c284560f1407f78691749881e72f09709a11a25efd8c4aa78d0",
+  "scripts/train_round00_stage01_timm.py": "5f00048dbe76ed4ef74ed562aebdb56ec8fede12a12f4a1e66d964e421c27313",
   "scripts/validate_config.py": "61d882a2de4ec9e5406c749093cbbd1e1c03688a0da2cd0c5729b25c3bfa9566",
   "tests/test_audit_round03_stage02_promotion.py": "3361a428736f46a2a59ad5099132497ed32bd05e280864310c407f34dbf757dd",
   "tests/test_phase4_outputs_metrics.py": "8bc940225e045fd3e260d6c6900b29755ff5b9b928761ec64bcb48c29f4e919a",
-  "tests/test_public_candidate.py": "4f2b7e6e5d9137b193f81bb6f66370b6af4c7e731b56385739af4272029407ea"
+  "tests/test_public_candidate.py": "4f2b7e6e5d9137b193f81bb6f66370b6af4c7e731b56385739af4272029407ea",
+  "tests/training/test_prediction_ranking.py": "620bb16b956c146f3359c15fd20b6835deb85b387c716da890955501b5fce59a"
 }

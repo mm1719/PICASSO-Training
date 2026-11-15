@@ -19,7 +19,7 @@ installed evaluation dependencies. That environment was not modified. The
 - The audit validates the observed zero-based class space, not completeness
   against a separate model class inventory. Missing trailing model classes must
   be detected by the caller before interpreting the paired macro metrics.
-- The trainer module is not imported by the checks. Torch, torchvision, timm,
+- The trainer module was not imported by these initial checks. Torch, torchvision, timm,
   model construction, checkpoint deserialization, data loading, optimizer steps,
   compilation, CUDA and production services are outside the tested execution path.
   This does not mean the real trainer CLI is framework-free: its top-level imports
@@ -60,10 +60,44 @@ No original data, checkpoint, tracking credentials or production services were
 used. Source-only publication and the existing no-reuse-license position are
 unchanged; these checks do not extend permission to datasets or weights.
 
+## 2026-11-15 single-ranking regression check
+
+The earlier trainer ranked logits for overall test metrics but independently
+ranked softmax scores for CSV export. Half-precision softmax can round distinct
+scores to ties or underflow them to zero, allowing those rankings to disagree.
+The updated `predict_test` ranks logits once, uses that ranking for all top-k
+counts and exported labels, and gathers softmax scores at the same indices.
+Exact ties in logits are not assigned a new cross-device tie-breaking policy.
+
+- The new FP16 underflow test failed on the previous code and passed after the
+  fix. No model weights or real images are involved.
+- Five CPU tests in `tests/training/test_prediction_ranking.py` cover FP16
+  underflow, FP16 rounding of distinct logits, exact logit ties, FP32 unequal
+  batches and the multi-crop prediction branch. They check all five metric
+  hit rates against CSV rankings, the ranked scores and top-one label mapping.
+- These tests import the full trainer and call its actual prediction exporter
+  with real PyTorch CPU tensors, a parameter-free flatten module and an
+  in-memory iterable. This is not a DataLoader, training or model-accuracy test.
+- The tests passed on Linux x86_64 / Python 3.11.15 with torch 2.11.0+cu130,
+  torchvision 0.26.0+cu130 and timm 1.0.26 in the existing research environment,
+  without modifying it. CUDA was hidden, autocast disabled, and FP16 inputs
+  supplied explicitly. This is not evidence of CUDA/autocast execution.
+- The separate 19 evaluation/mock tests and synthetic demo remain executable
+  in the isolated evaluation-only environment without torch. The additional
+  tests require the training dependencies and explicit discovery:
+  `python -m unittest discover -s tests/training -v`.
+- The current candidate checksum inventory covers 23 payload files, excluding
+  the inventory itself. Historical source-input hashes in
+  `source-provenance.json` remain unchanged.
+
+No historical prediction, metric, checkpoint, model weight or license is changed.
+The corresponding saved-results discrepancy is documented in the
+[Models experiment report](https://github.com/mm1719/PICASSO-Models/blob/main/experiments/round03_stage02/README.md#historical-top-k-consistency-note).
+
 ## Not verified
 
 Not performed: fresh training-stack installation, other operating systems or
-Python versions, lint/type certification, complete trainer imports, real-data
+Python versions, lint/type certification, real-data
 validation, model loading, training, GPU/runtime benchmarking, numerical
 equivalence to original runs, full pipeline reproduction, artifact-specific
 data/weight rights clearance, or selection of a reuse license.

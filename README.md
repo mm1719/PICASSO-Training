@@ -107,6 +107,22 @@ your own authorized data/support files, and a working CUDA environment. No
 training, model construction, checkpoint loading, or GPU validation was performed
 when preparing this candidate.
 
+The reference trainer now chooses one top-five ranking from logits for both
+overall test metrics and prediction CSVs, gathering softmax scores at those
+same indices. It does not rank rounded softmax values separately. This prevents
+half-precision rounding/underflow from making the two outputs disagree. Exact
+logit ties retain PyTorch's tie ordering; cross-device tie ordering is not
+guaranteed. Historical experiment results are not rewritten by this fix.
+
+Five additional CPU tensor regression tests import the actual trainer and call
+its prediction exporter with synthetic tensors, without images, weights or
+training. They require `requirements-training.txt`; they are separate from
+the 19 framework-free quick checks above. With those dependencies installed:
+
+```bash
+CUDA_VISIBLE_DEVICES='' PYTHONDONTWRITEBYTECODE=1 python -m unittest discover -s tests/training -v
+```
+
 Do not run this candidate as a substitute for the private workspace's
 lock-managed launcher on a shared training/inference GPU. That deployment
 integration is intentionally absent. Arrange exclusive compute or an appropriate

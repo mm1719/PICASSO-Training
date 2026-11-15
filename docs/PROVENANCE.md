@@ -56,3 +56,14 @@ claim that every dataset byte on the computer was independently verified.
 
 `candidate-sha256.json` inventories candidate files, excluding itself. Generated
 synthetic outputs and private review evidence are outside the candidate tree.
+
+## 2026-11-15 ranking correction
+
+The public trainer's test exporter now uses one logit-based ranking for both
+overall top-k counts and CSV labels, with softmax scores gathered at the selected
+indices. This replaces the former independent logit/softmax rankings, which
+could disagree after floating-point rounding. Five separate CPU tensor tests
+exercise the actual exporter; see [validation scope](VALIDATION.md).
+The original source-input digests remain provenance records, not hashes of this
+modified public source. No historical experiment data or source workspace
+training script is rewritten.

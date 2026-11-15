@@ -910,9 +910,12 @@ def predict_test(
                     logits = model(images)
 
             probs = torch.softmax(logits, dim=1)
-            top_probs, top_indices = probs.topk(5, dim=1)
-            for k, value in zip((1, 2, 3, 4, 5), accuracy_topk(logits, labels, (1, 2, 3, 4, 5))):
-                total_top[k] += value
+            # Rank once before softmax rounding can introduce additional ties.
+            top_indices = logits.topk(5, dim=1).indices
+            top_probs = probs.gather(1, top_indices)
+            correct = top_indices.eq(labels[:, None])
+            for k in total_top:
+                total_top[k] += float(correct[:, :k].any(dim=1).sum().item())
 
             labels_cpu = labels.cpu().tolist()
             top_indices_cpu = top_indices.cpu().tolist()
