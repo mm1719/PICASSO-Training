@@ -81,6 +81,32 @@ class SyntheticPipelineTest(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "Split ratios"):
                 prepare.main()
 
+    def assert_manifest_checksum_rejected(self, expected_checksum):
+        with tempfile.TemporaryDirectory() as tmp, contextlib.redirect_stdout(io.StringIO()):
+            root = Path(tmp)
+            fixture = root / "fixture"
+            run_demo(fixture)
+            inputs = fixture / "synthetic_inputs"
+            output = root / "rejected"
+            args = [
+                "prepare",
+                "--manifest", str(inputs / "manifest.csv.gz"),
+                "--target-profiles", str(inputs / "profiles.csv"),
+                "--before-training-mapping", str(inputs / "mapping.csv"),
+                "--output-dir", str(output),
+                "--expected-manifest-sha256", expected_checksum,
+            ]
+            with patch.object(sys, "argv", args):
+                with self.assertRaisesRegex(ValueError, "Manifest checksum mismatch"):
+                    prepare.main()
+            self.assertFalse(output.exists())
+
+    def test_rejects_empty_manifest_checksum_without_creating_output(self):
+        self.assert_manifest_checksum_rejected("")
+
+    def test_rejects_wrong_manifest_checksum_without_creating_output(self):
+        self.assert_manifest_checksum_rejected("0" * 64)
+
 
 class AuditValidationTest(unittest.TestCase):
     def frame(self):

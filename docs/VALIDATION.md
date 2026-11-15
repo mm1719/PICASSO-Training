@@ -3,7 +3,10 @@
 Validated in the existing Python 3.11 research environment using the recorded
 installed evaluation dependencies. No packages were installed or upgraded.
 
-- 17 unit/integration tests passed, including a 100-row invented-manifest pipeline.
+- 19 unit/integration tests passed, including a 100-row invented-manifest pipeline.
+- Empty and incorrect expected manifest checksums are rejected before creating
+  the output directory. The empty-checksum regression failed before the
+  2026-11-15 fix; matching checksums remain covered by the synthetic pipeline.
 - Synthetic checks cover deterministic 80/10/10 allocation and tiny-class
   fallback; validity metadata preservation; top-k metrics and source slices;
   paired-identity validation; deterministic bootstrap and zero deltas for

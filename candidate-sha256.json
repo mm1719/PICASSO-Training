@@ -4,7 +4,7 @@
   "configs/training.example.yaml": "dbed2110d4e6b9cd5cc0dd88a032e1be3898d91f5c71b5c1bfca47f5f16f8031",
   "docs/PROVENANCE.md": "66f2c092e2b87f6050df0e3bf6282e6cb0ebff7cea304d1e90bc2023dde6a3cf",
   "docs/RELEASE_GATES.md": "e4b74d7460089ccdd7e5e858bfcd8c2e8895b3e79ecdeed50d2fa9daece80d26",
-  "docs/VALIDATION.md": "7a754c6c1e6599dc3cf497e14a61938e7ec2dca6f0317b9b0524df14f53049fb",
+  "docs/VALIDATION.md": "6287f17342434d8622736dc194e7a982effbc3062c51042cad4a7a8dd98f8b34",
   "docs/dependency-metadata.json": "4ebf068adfc70331d8e87f53609ecadd0d74c325b9967e80b272e60f34b4d5b6",
   "docs/source-provenance.json": "b0373b234f6c19a2aed016194ec9b165c724dd5427f517a4f63563e8f2e7a2b5",
   "requirements-training.txt": "e576ddcd3169fd9575213a807c7dbaf04fc30bed653826b8b8f3414c0668aacd",
@@ -14,11 +14,11 @@
   "scripts/phase4_outputs/__init__.py": "6bb20acd34005413bd46f28b4179eced4e95ee7b2edb67d1d86e47b61528c3d6",
   "scripts/phase4_outputs/common.py": "eb297bc94f047e6537e7869ef365a6d585352745a4160975c552b6939d4875ea",
   "scripts/phase4_outputs/metrics.py": "0f790d36a100f83443e4b55637015365e00e1a6444ade4d61ad40f3e6aaebb30",
-  "scripts/prepare_round00_stage01_data.py": "bfe91150b7cdb2c22be9fbf300f09b757f314a523d3a39026e93b63177b4ccf1",
+  "scripts/prepare_round00_stage01_data.py": "0838dae19e42bba9405c04a00d0012134c8a89a2146be76c4ac8a6f23fbe451a",
   "scripts/synthetic_demo.py": "1edd19e2a4fb17879997bcd90de45b9a6f485b5d2ae3138de0b3a90859461a3d",
   "scripts/train_round00_stage01_timm.py": "d8eb9b78f7992c284560f1407f78691749881e72f09709a11a25efd8c4aa78d0",
   "scripts/validate_config.py": "61d882a2de4ec9e5406c749093cbbd1e1c03688a0da2cd0c5729b25c3bfa9566",
   "tests/test_audit_round03_stage02_promotion.py": "3361a428736f46a2a59ad5099132497ed32bd05e280864310c407f34dbf757dd",
   "tests/test_phase4_outputs_metrics.py": "8bc940225e045fd3e260d6c6900b29755ff5b9b928761ec64bcb48c29f4e919a",
-  "tests/test_public_candidate.py": "a7bf4f98feae322ac1d0c67001b9e6d9c24625b4e9823a5014ff61bad1397099"
+  "tests/test_public_candidate.py": "4f2b7e6e5d9137b193f81bb6f66370b6af4c7e731b56385739af4272029407ea"
 }

@@ -230,7 +230,7 @@ def main() -> None:
         raise ValueError(f"Split ratios must sum to 1.0, got {ratios}")
 
     manifest_hash = sha256_file(args.manifest)
-    if args.expected_manifest_sha256 and manifest_hash != args.expected_manifest_sha256:
+    if manifest_hash != args.expected_manifest_sha256:
         raise ValueError(
             f"Manifest checksum mismatch: expected {args.expected_manifest_sha256}, got {manifest_hash}"
         )
